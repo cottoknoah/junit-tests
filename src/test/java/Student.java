@@ -1,52 +1,35 @@
-import org.junit.Before;
-import org.junit.Test;
+import java.util.ArrayList;
 
 public class Student {
-    //properties
-    public String name;
-    public long id;
+    private String name;
+    private long Id;
+    private ArrayList<Integer> grades;
 
-    //constructor
-    public Student() {
+    public Student(String name, long id) {
         this.name = name;
-        this.id = id;
-        //initializes the grades property as an empty ArrayList.
-
+        this.Id = id;
+        this.grades = new ArrayList<>();
     }
 
-    //getter
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    //setters
-    public void setName(String name) {
-        this.name = name;
+    public long getId() {
+        return this.Id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void addGrade(int grade) {
+        this.grades.add(grade);
     }
 
-    // returns the student's id
-    public long getId(){
-        return this.id;
+    public double getGradeAverage() {
+        int counter = 0;
+        int total = 0;
+        for (Integer grade : this.grades) {
+            total += grade;
+            counter++;
+        }
+        return (double) total / counter;
     }
-
-    // returns the student's name
-    public String getName(){
-        return this.name = " ";
-    }
-
-    // adds the given grade to the grades list
-    public void addGrade(int grade){
-
-    }
-
-    // returns the average of the students grades
-    public double getGradeAverage(){
-        return
-    }
-
-
 }

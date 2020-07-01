@@ -1,19 +1,29 @@
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class StudentTest {
-
+    Student student;
 
     @Before
     public void setUp() {
-        Student blank = new Student();
-        blank.name = "Knoah";
-        blank.id = 1234567890;
+        student = new Student("Knoah", 787);
     }
 
     @Test
-    public void getId() {
-
+    public void testId() {
+        assertEquals(787, student.getId());
     }
 
+    @Test
+    public void testName() {
+        assertEquals("Knoah", student.getName());
+    }
+
+    @Test
+    public void testGradeMethods() {
+        student.addGrade(70);
+        student.addGrade(30);
+        assertEquals(100, student.getGradeAverage(), 0.5);
+    }
 }
